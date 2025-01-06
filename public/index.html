@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Hospital Management App</h1>
+        
+        <div class="mb-4">
+            <button id="readButton" class="btn btn-primary">Scan NFC Tag (Emergency Mode)</button>
+        </div>
+
+        <form id="patientForm">
+            <h2>Basic Patient Information</h2>
+            <input type="text" id="fullName" placeholder="Full Name" class="form-control" required>
+            <input type="number" id="age" placeholder="Age" class="form-control" required>
+            <input type="text" id="gender" placeholder="Gender" class="form-control" required>
+            <input type="text" id="bloodType" placeholder="Blood Type" class="form-control" required>
+            
+            <h2>Allergies</h2>
+            <textarea id="drugAllergies" placeholder="Drug Allergies" class="form-control"></textarea>
+            <textarea id="foodAllergies" placeholder="Food Allergies" class="form-control"></textarea>
+            <textarea id="environmentalAllergies" placeholder="Environmental Allergies" class="form-control"></textarea>
+            
+            <h2>Chronic Conditions</h2>
+            <label for="diabetes">Diabetes:</label>
+            <select id="diabetes" class="form-control">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <label for="hypertension">Hypertension:</label>
+            <select id="hypertension" class="form-control">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <label for="asthma">Asthma:</label>
+            <select id="asthma" class="form-control">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <label for="heartDisease">Heart Disease:</label>
+            <select id="heartDisease" class="form-control">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <label for="kidneyDisease">Kidney Disease:</label>
+            <select id="kidneyDisease" class="form-control">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            
+            <h2>Medications</h2>
+            <textarea id="currentMedications" placeholder="Current Medications" class="form-control"></textarea>
+            <textarea id="medicationChanges" placeholder="Medication Changes" class="form-control"></textarea>
+            
+            <h2>Past Medical History</h2>
+            <textarea id="surgeries" placeholder="Surgeries" class="form-control"></textarea>
+            <textarea id="illnesses" placeholder="Illnesses" class="form-control"></textarea>
+            
+            <h2>Emergency Contact</h2>
+            <input type="text" id="emergencyContactName" placeholder="Name" class="form-control" required>
+            <input type="text" id="emergencyContactRelationship" placeholder="Relationship" class="form-control" required>
+            <input type="text" id="emergencyContactPhone" placeholder="Phone" class="form-control" required>
+            
+            <h2>Immunization Records</h2>
+            <input type="text" id="tetanus" placeholder="Tetanus" class="form-control">
+            <input type="text" id="covid19" placeholder="COVID-19" class="form-control">
+            <textarea id="otherImmunizations" placeholder="Other Immunizations" class="form-control"></textarea>
+            
+            <h2>Lifestyle Factors (Optional)</h2>
+            <label for="smoker">Smoker:</label>
+            <select id="smoker" class="form-control">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <label for="alcohol">Alcohol:</label>
+            <select id="alcohol" class="form-control">
+                <option value="No">No</option>
+                <option value="Moderate">Moderate</option>
+                <option value="Daily">Daily</option>
+            </select>
+            <textarea id="dietaryRestrictions" placeholder="Dietary Restrictions" class="form-control"></textarea>
+            
+            <h2>Physician Details</h2>
+            <input type="text" id="physicianName" placeholder="Name" class="form-control" required>
+            <input type="text" id="physicianContact" placeholder="Contact" class="form-control" required>
+            
+            <h2>Insurance Information</h2>
+            <input type="text" id="insuranceProvider" placeholder="Provider" class="form-control" required>
+            <input type="text" id="insurancePolicy" placeholder="Policy" class="form-control" required>
+            
+            <button type="submit" class="btn btn-success">Submit Patient Data</button>
+            <button id="writeButton" type="button" class="btn btn-secondary">Write to NFC Tag</button>
+        </form>
+        <div id="message" class="mt-3"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
