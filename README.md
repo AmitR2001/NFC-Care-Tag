@@ -23,25 +23,53 @@ hospital-management-app
 └── README.md
 ```
 
+## Prerequisites
+- Node.js and npm installed
+- OpenSSL installed
+
 ## Setup Instructions
 1. **Clone the repository**:
-   ```
+   ```sh
    git clone <repository-url>
    cd hospital-management-app
    ```
 
 2. **Install dependencies**:
-   ```
+   ```sh
    npm install
    ```
 
-3. **Run the server**:
+3. **Install Necessary Node.js Modules**:
+   Ensure you have the required Node.js modules installed. Run the following command in your project directory:
+   ```sh
+   npm install express sqlite3 body-parser cors
    ```
+
+4. **Generate SSL Certificates**:
+   Open a terminal and navigate to your project directory. Run the following commands to generate a self-signed certificate:
+   ```sh
+   openssl genrsa -out key.pem 2048 
+   openssl req -new -key key.pem -out csr.pem   # press enter to skip prompts
+   openssl x509 -req -days 365 -in csr.pem -signkey key.pem -out cert.pem
+   ```
+
+5. **Run the server**:
+   ```sh
    node server.js
    ```
 
-4. **Access the application**:
+6. **Access the application**:
    Open your web browser and navigate to `http://localhost:3000`.
+
+7. **Access the Web App on Your Android Device**:
+   Find your local IP address by running the following command in your terminal or command prompt:
+   ```sh
+   ipconfig
+   ```
+   Open a web browser on your Android device and navigate to the local IP address of your development machine, followed by the port number. For example:
+   ```sh
+   https://192.168.1.100:3000
+   ```
 
 ## Usage
 - To admit a new patient, fill out the form on the homepage and submit it.

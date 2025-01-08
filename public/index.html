@@ -11,10 +11,6 @@
     <div class="container mt-5">
         <h1 class="text-center">Hospital Management App</h1>
         
-        <div class="mb-4">
-            <button id="readButton" class="btn btn-primary">Scan NFC Tag (Emergency Mode)</button>
-        </div>
-
         <form id="patientForm">
             <h2>Basic Patient Information</h2>
             <input type="text" id="fullName" placeholder="Full Name" class="form-control" required>
@@ -96,6 +92,9 @@
             
             <button type="submit" class="btn btn-success">Submit Patient Data</button>
             <button id="writeButton" type="button" class="btn btn-secondary">Write to NFC Tag</button>
+            <button id="readButton" type="button" class="btn btn-primary">Scan NFC Tag (Emergency Mode)</button>
+            <button id="readNFCButton" type="button" class="btn btn-info">Read NFC Tag</button>
+            <p>this is for test</p>
         </form>
         <div id="message" class="mt-3"></div>
     </div>
