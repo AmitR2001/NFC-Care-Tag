@@ -1,3 +1,4 @@
+// this is for future modification
 document.getElementById('getPatientForm').addEventListener('submit', async (event) => {
     event.preventDefault();
     const patientID = document.getElementById('patientID').value;

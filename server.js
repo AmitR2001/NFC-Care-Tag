@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Database setup
-// const db = new sqlite3.Database('./database.sqlite', (err) => {
+
 
 const db = new sqlite3.Database('./database2.sqlite', (err) => {
     if (err) {

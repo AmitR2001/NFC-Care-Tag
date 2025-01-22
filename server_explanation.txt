@@ -1,3 +1,4 @@
+// Import required modules
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
@@ -6,18 +7,17 @@ const path = require('path');
 const fs = require('fs');
 const https = require('https');
 
+// Create an Express application
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+// Middleware setup
+app.use(cors()); // Enable Cross-Origin Resource Sharing
+app.use(bodyParser.json()); // Parse JSON bodies
+app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded bodies
+app.use(express.static(path.join(__dirname, 'public'))); // Serve static files from the 'public' directory
 
 // Database setup
-// const db = new sqlite3.Database('./database.sqlite', (err) => {
-
 const db = new sqlite3.Database('./database2.sqlite', (err) => {
     if (err) {
         console.error('Error opening database:', err.message);
@@ -68,24 +68,7 @@ const db = new sqlite3.Database('./database2.sqlite', (err) => {
     }
 });
 
-// Routes
-// app.post('/api/patients', (req, res) => {
-//     const patient = req.body;
-//     const sql = `INSERT INTO patients (fullName, age, gender, bloodType, drugAllergies, foodAllergies, environmentalAllergies, diabetes, hypertension, asthma, heartDisease, kidneyDisease, currentMedications, medicationChanges, surgeries, illnesses, emergencyContactName, emergencyContactRelationship, emergencyContactPhone, tetanus, covid19, otherImmunizations, smoker, alcohol, dietaryRestrictions, physicianName, physicianContact, insuranceProvider, insurancePolicy) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-//     const params = [
-//         patient.fullName, patient.age, patient.gender, patient.bloodType,
-//         patient.drugAllergies, patient.foodAllergies, patient.environmentalAllergies,
-//         patient.diabetes, patient.hypertension, patient.asthma, patient.heartDisease,
-//         patient.kidneyDisease, patient.currentMedications, patient.medicationChanges,
-//         patient.surgeries, patient.illnesses, patient.emergencyContactName,
-//         patient.emergencyContactRelationship, patient.emergencyContactPhone,
-//         patient.tetanus, patient.covid19, patient.otherImmunizations,
-//         patient.smoker, patient.alcohol, patient.dietaryRestrictions,
-//         patient.physicianName, patient.physicianContact, patient.insuranceProvider,
-//         patient.insurancePolicy
-//     ];
-
-
+// Route to handle POST requests to add a new patient
 app.post('/api/patients', (req, res) => {
     const {
         fullName, age, gender, bloodType, drugAllergies, foodAllergies, environmentalAllergies,
@@ -121,6 +104,7 @@ app.post('/api/patients', (req, res) => {
     });
 });
 
+// Route to handle PUT requests to update a patient's PatientID
 app.put('/api/patients/:id/patientID', (req, res) => {
     const { patientID } = req.body;
     const sql = `UPDATE patients SET PatientID = ? WHERE id = ?`;
@@ -136,6 +120,7 @@ app.put('/api/patients/:id/patientID', (req, res) => {
     });
 });
 
+// Route to handle GET requests to retrieve a patient by PatientID
 app.get('/api/patients/patientID/:patientID', (req, res) => {
     const sql = `SELECT * FROM patients WHERE PatientID = ?`;
     const params = [req.params.patientID];
@@ -152,21 +137,6 @@ app.get('/api/patients/patientID/:patientID', (req, res) => {
     });
 });
 
-
-
-// Start server
-// app.listen(PORT, () => {
-//     console.log(`Server is running on http://localhost:${PORT}`);
-// });
-
-// new server
-
-// filepath: /f:/amit/html/pat3/hospital-management-app/server.js
-// app.listen(PORT, '192.168.0.104', () => {
-//     console.log(`Server is running on http://localhost:${PORT}`);
-// });
-
-
 // Read SSL certificate and key
 const options = {
     key: fs.readFileSync('key.pem'),
@@ -176,4 +146,4 @@ const options = {
 // Start HTTPS server
 https.createServer(options, app).listen(PORT, '0.0.0.0', () => {
     console.log(`Server is running on https://localhost:${PORT}`);
-}); 
+});

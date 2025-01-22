@@ -1,4 +1,6 @@
+// Add an event listener to the 'writeButton' element that triggers when clicked
 document.getElementById('writeButton').addEventListener('click', async () => {
+    // Retrieve values from various input fields
     const fullName = document.getElementById('fullName').value;
     const age = document.getElementById('age').value;
     const gender = document.getElementById('gender').value;
@@ -35,6 +37,7 @@ document.getElementById('writeButton').addEventListener('click', async () => {
         return;
     }
 
+    // Create a message string with all the retrieved values
     const message = `
         ${fullName || 'N/A'},${age || 'N/A'},${gender || 'N/A'},${bloodType || 'N/A'},
         ${drugAllergies || 'N/A'},${foodAllergies || 'N/A'},${environmentalAllergies || 'N/A'},
@@ -48,6 +51,7 @@ document.getElementById('writeButton').addEventListener('click', async () => {
         ${insuranceProvider || 'N/A'},${insurancePolicy || 'N/A'}
     `;
 
+    // Check if the browser supports Web NFC
     if ('NDEFReader' in window) {
         try {
             const ndef = new NDEFReader();
@@ -60,8 +64,10 @@ document.getElementById('writeButton').addEventListener('click', async () => {
                 }
             };
 
+            // Wait for 1 second to read existing data
             await new Promise(resolve => setTimeout(resolve, 1000));
 
+            // If existing data is found, ask the user if they want to overwrite it
             if (existingData) {
                 const overwrite = confirm('Do you want to overwrite Data on NFC tag?');
                 if (!overwrite) {
@@ -69,6 +75,7 @@ document.getElementById('writeButton').addEventListener('click', async () => {
                 }
             }
 
+            // Write the message to the NFC tag
             await ndef.write(message).then(() => {
                 document.getElementById('message').textContent = 'Message written.';
                 document.getElementById('message').classList.add('alert', 'alert-success');
@@ -86,6 +93,7 @@ document.getElementById('writeButton').addEventListener('click', async () => {
     }
 });
 
+// Add an event listener to the 'patientForm' element that triggers when the form is submitted
 document.getElementById('patientForm').addEventListener('submit', async (event) => {
     event.preventDefault();
     const fullName = document.getElementById('fullName').value;
@@ -118,8 +126,7 @@ document.getElementById('patientForm').addEventListener('submit', async (event) 
     const insuranceProvider = document.getElementById('insuranceProvider').value;
     const insurancePolicy = document.getElementById('insurancePolicy').value;
 
-    
-
+    // Send a POST request to save the patient data
     const response = await fetch('/api/patients', {
         method: 'POST',
         headers: {
@@ -136,7 +143,6 @@ document.getElementById('patientForm').addEventListener('submit', async (event) 
 
     const result = await response.json();
     const messageElement = document.getElementById('message');
-
     if (response.ok) {
         const patientID = await generatePatientID(fullName, age, gender, bloodType, drugAllergies, foodAllergies, environmentalAllergies, diabetes, hypertension, asthma, heartDisease, kidneyDisease, insuranceProvider, insurancePolicy);
         setTimeout(async () => {
@@ -157,6 +163,7 @@ document.getElementById('patientForm').addEventListener('submit', async (event) 
     }
 });
 
+// Function to generate a unique patient ID based on patient details
 async function generatePatientID(fullName, age, gender, bloodType, drugAllergies, foodAllergies, environmentalAllergies, diabetes, hypertension, asthma, heartDisease, kidneyDisease, insuranceProvider, insurancePolicy) {
     const details = `${fullName}${age}${gender}${bloodType}${drugAllergies}${foodAllergies}${environmentalAllergies}${diabetes}${hypertension}${asthma}${heartDisease}${kidneyDisease}${insuranceProvider}${insurancePolicy}`;
     const encoder = new TextEncoder();
@@ -167,6 +174,7 @@ async function generatePatientID(fullName, age, gender, bloodType, drugAllergies
     return `PAT${hashHex.substring(0, 12)}`;
 }
 
+// Add an event listener to the 'readButton' element that triggers when clicked
 document.getElementById('readButton').addEventListener('click', async () => {
     if ('NDEFReader' in window) {
         try {
@@ -190,6 +198,7 @@ document.getElementById('readButton').addEventListener('click', async () => {
     }
 });
 
+// Add an event listener to the 'readNFCButton' element that triggers when clicked
 document.getElementById('readNFCButton').addEventListener('click', async () => {
     if ('NDEFReader' in window) {
         try {
@@ -213,6 +222,7 @@ document.getElementById('readNFCButton').addEventListener('click', async () => {
     }
 });
 
+// Function to populate form fields with data
 function populateFormFields(data) {
     const fieldIds = [
         "fullName", "age", "gender", "bloodType",
@@ -240,6 +250,7 @@ function populateFormFields(data) {
     });
 }
 
+// Function to display NFC data in a new window
 function displayNFCData(data) {
     const fieldLabels = [
         "Full Name", "Age", "Gender", "Blood Type",
@@ -253,8 +264,6 @@ function displayNFCData(data) {
         "Physician Name", "Physician Contact",
         "Insurance Provider", "Insurance Policy"
     ];
-
-
 
     const values = data.split(',');
     let content = '<html><head><title>NFC Data</title><style>';
