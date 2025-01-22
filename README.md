@@ -1,7 +1,7 @@
-# Hospital Management Web App
+# NFC Care Tag App
 
 ## Overview
-This project is a simple hospital management web application that allows for patient admission and emergency mode functionality using NFC technology. The application is built using HTML, CSS, JavaScript, Node.js, Express.js, and SQLite.
+This project is a simple NFC Care Tag web application that allows for patient admission and emergency mode functionality using NFC technology. The application is built using HTML, CSS, JavaScript, Node.js, Express.js, and SQLite.
 
 ## Features
 - **Emergency Mode**: Scan an NFC tag to retrieve and display patient details.
@@ -10,7 +10,7 @@ This project is a simple hospital management web application that allows for pat
 
 ## Project Structure
 ```
-hospital-management-app
+nfc-care-tag
 ├── public
 │   ├── css
 │   │   └── style.css
@@ -31,7 +31,7 @@ hospital-management-app
 1. **Clone the repository**:
    ```sh
    git clone <repository-url>
-   cd hospital-management-app
+   cd nfc-care-tag
    ```
 
 2. **Install dependencies**:
