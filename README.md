@@ -71,9 +71,71 @@ nfc-care-tag
    https://192.168.1.100:3000
    ```
 
+## Install OpenSSL and Add to Environment Variables
+
+### Windows
+1. **Download OpenSSL**:
+   - Go to the [OpenSSL for Windows](https://slproweb.com/products/Win32OpenSSL.html) page.
+   - Download the appropriate version (e.g., Win64 OpenSSL v1.1.1).
+
+2. **Install OpenSSL**:
+   - Run the installer and follow the instructions.
+   - During installation, select the option to copy OpenSSL DLLs to the Windows system directory.
+
+3. **Add OpenSSL to Environment Variables**:
+   - Open the Start Menu, search for "Environment Variables", and select "Edit the system environment variables".
+   - In the System Properties window, click on the "Environment Variables" button.
+   - Under "System variables", find the `Path` variable, select it, and click "Edit".
+   - Click "New" and add the path to the OpenSSL `bin` directory (e.g., `C:\Program Files\OpenSSL-Win64\bin`).
+   - Click "OK" to close all windows.
+
+### macOS
+1. **Install OpenSSL using Homebrew**:
+   ```sh
+   brew install openssl
+   ```
+
+2. **Add OpenSSL to Environment Variables**:
+   - Open your terminal and edit your shell profile file (e.g., `.bash_profile`, `.zshrc`):
+     ```sh
+     nano ~/.zshrc
+     ```
+   - Add the following lines to the file:
+     ```sh
+     export PATH="/usr/local/opt/openssl/bin:$PATH"
+     export LDFLAGS="-L/usr/local/opt/openssl/lib"
+     export CPPFLAGS="-I/usr/local/opt/openssl/include"
+     ```
+   - Save the file and reload the shell profile:
+     ```sh
+     source ~/.zshrc
+     ```
+
+### Linux
+1. **Install OpenSSL**:
+   ```sh
+   sudo apt-get update
+   sudo apt-get install openssl
+   ```
+
+2. **Add OpenSSL to Environment Variables**:
+   - Open your terminal and edit your shell profile file (e.g., `.bashrc`):
+     ```sh
+     nano ~/.bashrc
+     ```
+   - Add the following line to the file:
+     ```sh
+     export PATH="/usr/local/ssl/bin:$PATH"
+     ```
+   - Save the file and reload the shell profile:
+     ```sh
+     source ~/.bashrc
+     ```
+
 ## Usage
 - To admit a new patient, fill out the form on the homepage and submit it.
 - Use the NFC scanning buttons to read from or write to NFC tags for quick patient data retrieval and admission.
+
 
 ## Database Schema
 ```sql
