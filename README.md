@@ -183,3 +183,77 @@ CREATE TABLE IF NOT EXISTS patients (
 
 ## License
 This project is licensed under the MIT License.
+
+
+# NFC-Based Web Application for Medical Emergencies
+
+## What is the NFC-Based Web Application?
+
+A system designed to provide first responders and hospitals with instant access to critical patient medical information during emergencies.
+
+Uses NFC tags to store important details such as medical history, allergies, and emergency contacts.
+
+Helps save time, improves emergency care, and streamlines hospital admission processes.
+
+![NFC Application](images/nfc-application-image.png)
+
+## How to Create an NFC Tag
+
+The patient or healthcare provider inputs:
+- Name
+- Age
+- Blood group
+- Medical history
+- Emergency contacts
+
+Data is securely stored in the web application.
+
+The information is written onto an NFC tag, which the patient carries for emergencies.
+
+![Create NFC Tag](images/create-nfc-tag-image.png)
+
+## Scanning the NFC Tag in an Emergency
+
+First responders scan the NFC tag using any NFC-enabled smartphone.
+
+Patient details like name, medical history, and emergency contacts are instantly displayed.
+
+Enables responders to provide timely first aid and stabilize the patient.
+
+![Scanning NFC Tag](images/scanning-nfc-tag-image.png)
+
+## Hospital Admission Process
+
+Upon arrival at the hospital, the receptionist scans the NFC tag at the desk.
+
+The patient’s details are quickly added to the hospital’s system.
+
+Doctors receive the patient’s medical history instantly, allowing for faster and more informed treatment.
+
+![Hospital Admission](images/hospital-admission-image.png)
+
+## Doctor’s Use of Patient Information
+
+Doctors review patient details such as medical conditions, allergies, and past treatments.
+
+Informed decisions are made without delays, ensuring effective and timely care.
+
+Minimizes risks and improves outcomes during emergencies.
+
+![Doctor Review](images/doctor-review-image.png)
+
+## Key Benefits
+
+- Saves valuable time in emergencies.
+- Reduces delays by providing instant access to medical history.
+- Improves the coordination between first responders and hospital staff.
+- Ensures accurate and efficient patient care.
+
+## Demo
+
+![Demo Image](images/demo-image.png)
+
+## Thank You!
+
+This NFC-based system bridges the gap between first responders and healthcare providers, ensuring timely and life-saving care.
+
