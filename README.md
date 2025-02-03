@@ -195,7 +195,7 @@ Uses NFC tags to store important details such as medical history, allergies, and
 
 Helps save time, improves emergency care, and streamlines hospital admission processes.
 
-![NFC Application](images/nfc-application-image.png)
+![NFC Application](images/1_What%20is%20the%20NFC-Based%20Web%20Application.png)
 
 ## How to Create an NFC Tag
 
@@ -210,7 +210,7 @@ Data is securely stored in the web application.
 
 The information is written onto an NFC tag, which the patient carries for emergencies.
 
-![Create NFC Tag](images/create-nfc-tag-image.png)
+![Create NFC Tag](images/2_How%20to%20Create%20an%20NFC%20Tag.png
 
 ## Scanning the NFC Tag in an Emergency
 
@@ -220,7 +220,7 @@ Patient details like name, medical history, and emergency contacts are instantly
 
 Enables responders to provide timely first aid and stabilize the patient.
 
-![Scanning NFC Tag](images/scanning-nfc-tag-image.png)
+![Scanning NFC Tag](images/3_Scanning%20the%20NFC%20Tag%20in%20an%20Emergency.png)
 
 ## Hospital Admission Process
 
@@ -230,7 +230,7 @@ The patient’s details are quickly added to the hospital’s system.
 
 Doctors receive the patient’s medical history instantly, allowing for faster and more informed treatment.
 
-![Hospital Admission](images/hospital-admission-image.png)
+![Hospital Admission](images/4_Hospital%20Admission%20Process.png)
 
 ## Doctor’s Use of Patient Information
 
@@ -240,7 +240,7 @@ Informed decisions are made without delays, ensuring effective and timely care.
 
 Minimizes risks and improves outcomes during emergencies.
 
-![Doctor Review](images/doctor-review-image.png)
+![Doctor Review](images/5_Doctor’s%20Use%20of%20Patient%20Information.png)
 
 ## Key Benefits
 
@@ -251,9 +251,8 @@ Minimizes risks and improves outcomes during emergencies.
 
 ## Demo
 
-![Demo Image](images/demo-image.png)
+![Demo Image](images/6_Key%20Benefits.png)
 
 ## Thank You!
 
 This NFC-based system bridges the gap between first responders and healthcare providers, ensuring timely and life-saving care.
-
