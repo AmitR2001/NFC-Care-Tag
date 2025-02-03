@@ -210,7 +210,7 @@ Data is securely stored in the web application.
 
 The information is written onto an NFC tag, which the patient carries for emergencies.
 
-![Create NFC Tag](images/2_How%20to%20Create%20an%20NFC%20Tag.png
+![Create NFC Tag](images/2_How%20to%20Create%20an%20NFC%20Tag.png)
 
 ## Scanning the NFC Tag in an Emergency
 
