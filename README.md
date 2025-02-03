@@ -249,9 +249,9 @@ Minimizes risks and improves outcomes during emergencies.
 - Improves the coordination between first responders and hospital staff.
 - Ensures accurate and efficient patient care.
 
-## Demo
+## 
 
-![Demo Image](images/6_Key%20Benefits.png)
+![Key Benefits](images/6_Key%20Benefits.png)
 
 ## Thank You!
 
